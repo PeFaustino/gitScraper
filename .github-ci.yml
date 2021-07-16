@@ -1,0 +1,14 @@
+eb:dev:
+    image: ruby
+    stage: deploy
+    environment: live
+    script:
+       - apt-get update && apt-get install -y zip
+       - apt-get install default-jdk -y
+       - apt-get install maven -y
+       - mvn clean install
+       - gem install dpl
+       - zip -r deploy.zip ./target/project-0.0.1-SNAPSHOT.jar
+       - dpl --zip_file=deploy.zip --skip_cleanup --provider=elasticbeanstalk  --app="git-scraper" --env="Gitscraper-env " --region="us-east-1" --bucket-name="elasticbeanstalk-us-east-1-246198859468"
+    only:
+       - master
