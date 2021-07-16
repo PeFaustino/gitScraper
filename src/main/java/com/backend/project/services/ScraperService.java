@@ -58,10 +58,8 @@ public class ScraperService {
                 bytes = bytes * 1000;
                 break;
             case "Bytes":
-                bytes = bytes;
+            case "Byte":
                 break;
-            default:
-                new Exception();
         }
 
         return bytes.longValue();

@@ -40,10 +40,10 @@ public class GithubControllerTest {
 
     @Test
     public void returnSuccessList_() {
-        ResponseEntity<List<FilesDto>> response = githubController.get("PeFaustino", "ReactNative");
+        ResponseEntity<List<FilesDto>> response = githubController.get("PeFaustino", "gitScraper");
 
         Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        Assertions.assertThat(Objects.requireNonNull(response.getBody()).size()).isEqualTo(31);
+        Assertions.assertThat(Objects.requireNonNull(response.getBody()).size()).isEqualTo(7);
     }
 
 }
