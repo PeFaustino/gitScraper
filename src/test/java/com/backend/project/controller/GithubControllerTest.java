@@ -43,7 +43,6 @@ public class GithubControllerTest {
         ResponseEntity<List<FilesDto>> response = githubController.get("PeFaustino", "gitScraper");
 
         Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        Assertions.assertThat(Objects.requireNonNull(response.getBody()).size()).isEqualTo(7);
     }
 
 }

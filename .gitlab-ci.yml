@@ -9,6 +9,6 @@ eb:dev:
        - mvn clean install
        - gem install dpl
        - zip -r deploy.zip ./target/project-0.0.1-SNAPSHOT.jar
-       - dpl --zip_file=deploy.zip --skip_cleanup --provider=elasticbeanstalk  --app="git-scraper" --env="Gitscraper-env " --region="us-east-1" --bucket-name="elasticbeanstalk-us-east-1-246198859468"
+       - dpl --zip_file=deploy.zip --skip_cleanup --provider=elasticbeanstalk  --app="git-scraper" --env="Gitscraper-env-1 " --region="us-east-1" --bucket-name="elasticbeanstalk-us-east-1-246198859468"
     only:
        - master
