@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @RunWith(SpringRunner.class)
 @ExtendWith(SpringExtension.class)
@@ -34,6 +35,7 @@ public class GithubControllerTest {
         ResponseEntity<List<FilesDto>> response = githubController.get("PeFaustino", "gitScraper");
 
         Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        Assertions.assertThat(Objects.requireNonNull(response.getBody()).size()).isGreaterThan(0);
     }
 
 }

@@ -21,6 +21,11 @@ public class GithubController {
     private final ScraperService scraperService = new ScraperService();
 
 
+    @GetMapping()
+    public ResponseEntity<List<FilesDto>> get() {
+        return ResponseEntity.ok(scraperService.getHtml("https://github.com/PeFaustino/gitScraper", new ArrayList<>()));
+    }
+
     @GetMapping("{owner}/{repo}")
     public ResponseEntity<List<FilesDto>> get(@PathVariable String owner, @PathVariable String repo) {
         return ResponseEntity.ok(scraperService.getHtml("https://github.com/" + owner + "/" + repo, new ArrayList<>()));
